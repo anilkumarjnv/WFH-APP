@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Login</title>
+    <style>
+        .container-fluid {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            height: 100vh;
+            background-image: url(https://media.istockphoto.com/id/1071826228/photo/gold-heart-shapes-background.jpg?s=612x612&w=0&k=20&c=DmNOrJ70OUA8AVVIyvYSIynIFbwR17gcQ_hSkwfiyL8=);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: cursive;
+            font-size: 20px;
+
+        }
+        .login{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+
+        .login-form{
+            width: 400px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+        }
+
+        .login-form input,
+        .login-form button,
+        .login-form p {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .card {
+            width: 600px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container-fluid ">
+        <div class="card m-5">
+            <div class="card-body">
+                  <h1 style="font-size: 55px;"><B>W</B>ords <b>F</b>rom <b>H</b>eart</h1>
+                  <p>Welcome to "Words from the Heart," a safe haven for sharing your innermost thoughts, ideas, and feelings. This platform is dedicated to giving your voice the space it deserves. <br><br> At "Words from the Heart," we believe in the power of authentic expression. Our mission is to create a supportive community where individuals from all walks of life can connect through the written word. <br> <br>Joining our community is simple. Sign up for an account, create your profile, and start sharing your thoughts with the world. You can also explore and engage with other heartfelt contributions.</p>
+            </div>
+        </div>
+        <div class="login">
+            <h1 style="font-size: 55px;">Login</h1>
+            <form action="/login" method="post" class="login-form">
+                <div class="form-group">
+                    <label for="profile">Profile Id</label>
+                    <input type="text" class="form-control" id="profile" aria-describedby="emailHelp" name="profile"
+                        placeholder="Enter Profile ID">
+
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+
+            </form>
+            <form action="/register">
+                <p>Didn't have account? <button type="submit" class="btn btn-link">Create Account</button></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

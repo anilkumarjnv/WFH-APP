@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <title>Posts</title>
+    <style>
+        form {
+            display: inline;
+        }
+
+        .container-fluid {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 20px;
+            height: 100vh;
+            background-image: url(https://media.istockphoto.com/id/1440173972/vector/abstract-multicolored-blurred-gradient-background-gradient-blue-orange-background-for-use-in.jpg?s=612x612&w=0&k=20&c=rx1zBB6CWTlaXTI1q0qrFfsMGNEWI0IVt5S-Zhm_sEk=);
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            font-family: cursive;
+            font-size: 20px;
+            border: 1px solid black;
+
+        }
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            width: 18rem;
+            justify-content: center;
+            border-radius: 8px;
+            
+        }
+
+        .content {
+            flex: 1;
+            overflow-y: scroll;
+            border-radius: 8px;
+
+        }
+
+        .content::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        .card {
+            margin: 4px;
+            background-color: rgb(255, 255, 255,0.5);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="col-4 profile">
+            <div class="card ">
+                <div class="card-body">
+                    <h3 class="card-title">{{userInfo.name}}</h3>
+                    <p class="card-text">@{{userInfo.profile}}</p>
+                    <p class="card-text">{{userInfo.headline}}</p>
+
+                </div>
+                <button type="button" class="btn btn-primary m-3" data-toggle="modal" data-target="#exampleModal"
+                    data-whatever="@mdo">Create Post</button>
+                <form action="/myposts" method="post">
+                    <input type="hidden" name="profile" value="{{userInfo.profile}}">
+                    <button type="submit" class="btn btn-primary m-3">My Posts</button>
+                </form>
+                <form action="/" method="get">
+                    <button type="submit" class="btn btn-primary m-3">logout</button>
+                </form>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Lets Create a Post</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <form action="/addposts" method="post">
+                                    <div class="form-group">
+                                        <input type="hidden" name="profile" value="{{userInfo.profile}}">
+                                        <label for="message-text" class="col-form-label">Message:</label>
+                                        <textarea class="form-control" name="content" id="message-text"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Post</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-8  content">
+            {{#each data}}
+            <div class="card">
+                <div class="media text-muted pt-3 m-3">
+                    <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32"
+                        xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+                        preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff"
+                            dy=".3em">32x32</text>
+                    </svg>
+
+                    <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <strong class="d-block text-gray-dark">@{{profile}}</strong>
+                    </p>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{content}}</p>
+                </div>
+                <span class="m-3">
+                    <form action="/like" method="post">
+                        <input type="hidden" name="content" value="{{content}}">
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-thumbs-up"></i>Like</button>
+                    </form>
+                    <button type="button" disabled class="btn btn-primary">{{likes}}</button>
+                    <form action="/share" method="post">
+                        <input type="hidden" name="content" value="{{content}}">
+                        <button type="submit" class="btn btn-success"><i class="fas fa-share"></i>Share</button>
+                    </form>
+                    <button type="button" disabled class="btn btn-primary">{{shares}}</button>
+                    
+                </span>
+
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
