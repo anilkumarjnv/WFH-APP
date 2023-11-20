@@ -1,10 +1,10 @@
 import mysql from 'mysql2'
 
 const connection = mysql.createPool({
-    host:	'ble5mmo2o5v9oouq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-    user : 'my3wn96q093tz71w',
-    password: 'z67bbgc81dpbaxpf',
-    database: 'bq3du3eharluds5p'
+    host:'127.0.0.1',
+    user : 'root',
+    password: 'Anil1531@',
+    database:'social_media'
 }).promise()
 
 export async function readPosts(){
