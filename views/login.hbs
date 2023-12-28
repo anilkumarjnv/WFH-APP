@@ -17,12 +17,9 @@
             flex-direction: row;
             justify-content: center;
             height: 100vh;
-            background-image: url(https://media.istockphoto.com/id/1071826228/photo/gold-heart-shapes-background.jpg?s=612x612&w=0&k=20&c=DmNOrJ70OUA8AVVIyvYSIynIFbwR17gcQ_hSkwfiyL8=);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            font-family: cursive;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 20px;
+            background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
 
         }
         .login{
@@ -37,7 +34,7 @@
         .login-form{
             width: 400px;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.5);
+            background-color: #f0f0f0;
             border-radius: 8px;
         }
 
@@ -47,29 +44,15 @@
             width: 100%;
             margin-bottom: 10px;
         }
-
-        .card {
-            width: 600px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 8px;
-            
-
-        }
     </style>
 
 </head>
 
 <body>
     <div class="container-fluid ">
-        <div class="card m-5">
-            <div class="card-body">
-                  <h1 style="font-size: 55px;"><B>W</B>ords <b>F</b>rom <b>H</b>eart</h1>
-                  <p>Welcome to "Words from the Heart," a safe haven for sharing your innermost thoughts, ideas, and feelings. This platform is dedicated to giving your voice the space it deserves. <br><br> At "Words from the Heart," we believe in the power of authentic expression. Our mission is to create a supportive community where individuals from all walks of life can connect through the written word. <br> <br>Joining our community is simple. Sign up for an account, create your profile, and start sharing your thoughts with the world. You can also explore and engage with other heartfelt contributions.</p>
-            </div>
-        </div>
+        
         <div class="login">
-            <h1 style="font-size: 55px;">Login</h1>
+            <h1 style="font-size: 55px; color:white">Login</h1>
             <form action="/login" method="post" class="login-form">
                 <div class="form-group">
                     <label for="profile">Profile Id</label>
@@ -87,7 +70,7 @@
 
             </form>
             <form action="/register">
-                <p>Didn't have account? <button type="submit" class="btn btn-link">Create Account</button></p>
+                <p style="color: white;">Didn't have account? <button type="submit" class="btn btn-link">Create Account</button></p>
             </form>
         </div>
     </div>
